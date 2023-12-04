@@ -1,11 +1,9 @@
-#include "iostream";
+#include <iostream>
+import Math;
 
-int main()
+int main() 
 {
-	int Age;
-	std::cout << "Enter your age: ";
-	std::cin >> Age;
-	std::cout << "Your age is " << Age;
+	std::cout << "Best Number is: " << Add(10, 13);
 
 	return 0;
 }
