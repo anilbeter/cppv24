@@ -1,3 +1,11 @@
 export module Math;
 
-export void MyFunc();
+export int Add(int a, int b)
+{
+	return a + b;
+}
+
+export int Subtract(int a, int b)
+{
+	return a - b;
+}
