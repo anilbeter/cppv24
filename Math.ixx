@@ -9,3 +9,5 @@ export int Subtract(int a, int b)
 {
 	return a - b;
 }
+
+export int num1{ 20 };
