@@ -3,34 +3,21 @@ using namespace std;
 
 int main()
 {
-	string msg = "hello world";
-	int year = 2024;
-	float mySanity = 23.24;
+	string colors[] = { "blue", "red", "black" };
 
-	char favChar = 'A';
-	char normalChar = 'f';
+	cout << colors[0] << endl;;
+	// blue
 
-	bool isDreamComeThrough = true;
-	bool isThinkingAboutStop = false;
+	colors[0] = "ocean blue";
+	cout << colors[0] << endl;;
+	// ocean blue;
 
-	cout << favChar << endl;
-	cout << normalChar << endl;
+	// size of an array
+	cout << sizeof(colors) / sizeof(string) << endl;
+	// 3
 
-	cout << isDreamComeThrough << endl;
-	// 1 (true)
-	cout << isThinkingAboutStop << endl;
-	// 0 (false)
-
-	// 1 tb is 1024 gb
-	// 1 gb is 1024 mb
-	// 1 mb is 1024 kb
-	// 1 kb is 1024 bytes
-	// 1 byte is 8 bits
-	// 1 bit is 1 bit that is either 0 or 1
-	// like 10101010110000110010101
-
-	cout << "the size of int is: " << sizeof(int) << " bytes" << endl;
-	// the size of int is: 4 bytes
-	cout << "the size of float is " << sizeof(float) << " bytes" << endl;
-	// the size of float is: 4 bytes
+	// arrays are fixed size!
+	// THIS IS NOT VALID:
+	// colors[3] = "purple";
+	// cout << colors[3] << endl;
 }
