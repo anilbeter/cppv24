@@ -5,20 +5,16 @@ using namespace std;
 
 int main()
 {
-	int age;
-	cout << "Please enter your age." << endl;
-	cin >> age;
+	//for
+	int nums[] = { 1,2,3,4,5 };
+	for (int i = 0; i < sizeof(nums) / sizeof(int); i++)
+	{
+		cout << nums[i] << endl;
+	}
 
-	if (age == 18)
+	//foreach
+	for (int n : nums)
 	{
-		cout << "You are just 18" << endl;
-	}
-	else if (age > 18)
-	{
-		cout << "You allowed to drink" << endl;
-	}
-	else 
-	{
-		cout << "You cant drink" << endl;
+		cout << n << endl;
 	}
 }
