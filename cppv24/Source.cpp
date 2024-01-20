@@ -5,13 +5,20 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello, name please?" << endl;
-	string name;
-	cin >> name;
-	cout << "And age." << endl;
 	int age;
+	cout << "Please enter your age." << endl;
 	cin >> age;
-	cin.clear();
-	cin.ignore(1000, '\n');
-	cout << "Your name is " << name << " and " << age << " years old. Gotcha" << endl;
+
+	if (age == 18)
+	{
+		cout << "You are just 18" << endl;
+	}
+	else if (age > 18)
+	{
+		cout << "You allowed to drink" << endl;
+	}
+	else 
+	{
+		cout << "You cant drink" << endl;
+	}
 }
