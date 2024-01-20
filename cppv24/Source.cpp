@@ -1,73 +1,31 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 int main()
 {
-	// array can hold elements of any type
-	// array size is fixed
-	int IDs[] = { 23, 45, 99 };
+	// JavaScript objectler gibi, key-value iliþkisi var
+	map<int, string> students{ {2345, "Anil"}, {99, "Martha"}, {4529, "Ilyada"}, {2023, "Chris"}};
 
-	// {...} is called initializer
-	vector<int> IDVector = { 23, 45, 99 };
+	cout << students[2345] << endl;
+	// Anil
+	cout << students[4529] << endl;
+	// Ilyada
 
-	// get first item from array & vector
-	cout << "the first of ID is: " << IDs[0] << endl;
-	cout << "the first of IDVector is: " << IDVector[0] << endl;
+	// Update a key
+	cout << students[99] << endl;
+	// Martha
+	students[99] = "STOP!";
+	cout << students[99] << endl;
+	// STOP!
 
-	// get last item from array
-	cout << "the last one of IDs is: " << IDs[((sizeof(IDs) / sizeof(int)) - 1)] << endl;
+	// Add new key
+	students.insert({ 9, "Ocean" });
+	cout << students[9] << endl;
+	// Ocean
 
-	// get last item from vector
-	cout << "the last one of IDVector is: " << IDVector.back() << endl;
+	// Remove stuff
+	students.erase(9);
 
-	// size of array
-	cout << "the size of ID array: " << sizeof(IDs) / sizeof(int) << endl;
-	// size of vector
-	cout << "the size of IDVector: " << IDVector.size() << endl;
-
-	// vector can grow or shrink unlike array
-	// grow)
-	IDVector.push_back(1);
-	for (int i = 0; i < IDVector.size(); i++)
-	{
-		cout << IDVector[i] << endl;
-		/*
-		23
-		45
-		99
-		1
-		*/
-	}
-
-	// get first item of vector
-	cout << "the first item of vector is: " << IDVector.front() << endl;
-	// the first item of vector is: 23
-	
-	// get last item of vector
-	cout << "the last item of vector is: " << IDVector.back() << endl;
-	// the last item of vector is: 1
-
-	// insert
-	IDVector.insert(IDVector.begin(), 123);
-	cout << "the first item of vector is: " << IDVector.front() << endl;
-	// the first item of vector is: 123
-
-	// insert to specific place in vector
-	IDVector.insert(IDVector.begin() + 1, 999);
-	for (int i = 0; i < IDVector.size(); i++)
-	{
-		cout << IDVector[i] << endl;
-		/*
-		123
-		999
-		23
-		45
-		99
-		1
-		*/
-	}
-
-	// remove things
-	IDVector.erase(IDVector.begin());
 }
