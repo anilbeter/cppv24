@@ -5,11 +5,24 @@ using namespace std;
 
 int main()
 {
-	// fancier for loop (look like while)
 	int i = 0;
-	for (; i < 10;)
+	while (i < 10)
 	{
 		i++;
 		cout << i << endl;
+	}
+
+
+	cout << "Please type 'anil'" << endl;
+	string name;
+	cin >> name;
+	while (true)
+	{
+		if (name != "anil")
+		{
+			cout << "I SAID WRITE ANIL" << endl;
+			cin >> name;
+		}
+		else break;
 	}
 }
