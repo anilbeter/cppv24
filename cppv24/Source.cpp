@@ -20,12 +20,20 @@ Returning to Willowbrook, Lily shared her enchanting adventure, gifting crystals
 	
 	stringstream ss;
 	ss << text;
-
 	string nextStr = "";
-	ss >> nextStr;
-	cout << nextStr << endl;
-	// Output: In -> first word
-	ss >> nextStr;
-	cout << nextStr << endl;
-	// Output: the -> second word
+
+	// tüm stringleri(kelimeleri) tek tek yazdýrma:
+	while (ss >> nextStr)
+	{
+		cout << nextStr << endl;
+		/*
+		* TODO1)
+		* Bazý outputlar:
+		* forest,
+		* happen.Lily's
+		* gibi noktalama iþaretleri kelime yapýsýný bozuyor, bunlarý düzeltmem gerek
+		* TODO2)
+		* the ve The gibi büyük-küçük harf farklarý var, bunu düzeltmem gerek
+		*/
+	}
 }
