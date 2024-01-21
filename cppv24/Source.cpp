@@ -5,24 +5,10 @@ using namespace std;
 
 int main()
 {
-	int i = 0;
-	while (i < 10)
-	{
-		i++;
+	int i = 10;
+	do {
 		cout << i << endl;
-	}
-
-
-	cout << "Please type 'anil'" << endl;
-	string name;
-	cin >> name;
-	while (true)
-	{
-		if (name != "anil")
-		{
-			cout << "I SAID WRITE ANIL" << endl;
-			cin >> name;
-		}
-		else break;
-	}
+		i++;
+	} while (i < 10);
+	// do while will do the code in {} once first before checking the condition
 }
