@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	// enums are basically named integers
-	enum Mood
+	enum class Mood
 	{
 		Happy, // defaults to 0
 		Angry, // previous + 1
@@ -15,26 +15,25 @@ int main()
 	};
 
 	// create a variable of the enum type Mood, and give it a value of Happy
-	Mood mood = Happy;
+	Mood mood = Mood::Happy;
 
-	int moodInt = mood;
-	cout << mood << endl; // 0
+	int moodInt = (int)mood;
 
-	Mood sadly = Sad;
-	int favNum = sadly;
+	Mood sadly = Mood::Sad;
+	int favNum = (int)sadly;
 	cout << "My favorite num is " << favNum << endl;
 	// My favorite num is 23
 
 
 	switch (mood)
 	{
-	case Happy:
+	case Mood::Happy:
 		cout << "Happy happy happyy!" << endl;
 		break;
-	case Angry:
+	case Mood::Angry:
 		cout << "I DONT WANT TO SEE YOU!" << endl;
 		break;
-	case Sad:
+	case Mood::Sad:
 		cout << "Please dont leave" << endl;
 		break;
 	default:
@@ -45,13 +44,13 @@ int main()
 
 	switch (23)
 	{
-	case Happy:
+	case (int)Mood::Happy:
 		cout << "Happy happy happyy!" << endl;
 		break;
-	case Angry:
+	case (int)Mood::Angry:
 		cout << "I DONT WANT TO SEE YOU!" << endl;
 		break;
-	case Sad:
+	case (int)Mood::Sad:
 		cout << "Please dont leave" << endl;
 		break;
 	default:
