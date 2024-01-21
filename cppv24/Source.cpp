@@ -6,27 +6,19 @@ using namespace std;
 
 int main()
 {
-	// converts miles to kilometers
-	// take input from the user, ask a distance in Miles
-	// convert that distance to kilometers and cout the value
+	// check a given number from the user, tell if it is odd or even
+	cout << "Helloo to odd or even mini-app." << endl;
+	cout << "What number you'd like to check?" << endl;
 
-	const float CONVERSION = 1.609344;
-	float defaultMileValue = 0;
-
-	cout << "Hello! Welcome to Miles to Kilometers converter" << endl;
-	cout << "Please write distance in miles." << endl;
-
-	cin >> defaultMileValue;
+	int num;
+	cin >> num;
 	while (!cin.good())
 	{
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-		cout << "Error input! Please give a number: \n>>>";
-		cin >> defaultMileValue;
+		cout << "Please enter valid number!\n> ";
+		cin >> num;
 	}
-
-	float distanceInKilometers = defaultMileValue * CONVERSION;
-
-	cout << defaultMileValue << " mile equals to " << distanceInKilometers << " kilometers." << endl;
+	if (num % 2 == 0) cout << "you entered " << num << " and it is EVEN" << endl;
+	else cout << "you entered " << num << " and it is ODD" << endl;
 }
