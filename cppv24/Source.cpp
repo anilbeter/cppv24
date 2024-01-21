@@ -21,6 +21,7 @@ Returning to Willowbrook, Lily shared her enchanting adventure, gifting crystals
 	stringstream ss;
 	ss << text;
 	string nextStr = "";
+	map<string, int> wordCountMap;
 
 	while (ss >> nextStr)
 	{
@@ -43,6 +44,21 @@ Returning to Willowbrook, Lily shared her enchanting adventure, gifting crystals
 			string leftOver = nextStr.substr(lastPullIndex);
 			ss << ' ' << leftOver;
 		}
-		cout << word << endl;
+
+		if (wordCountMap.find(word) == wordCountMap.end())
+		{
+			wordCountMap.insert({ word, 1 });
+		}
+		else
+		{
+			wordCountMap[word] += 1;
+		}
+
+		// & means -> we DONT copy, we reference it
+		for (pair<const string, int>& pair : wordCountMap)
+		{
+			cout << "word: " << pair.first << " is repeated: " << pair.second << " times" << endl;
+		}
+
 	}
 }
