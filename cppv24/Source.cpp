@@ -2,23 +2,30 @@
 #include <vector>
 #include <map>
 #include <limits>
+#include <string> 
+#include <sstream> 
 using namespace std;
 
 int main()
 {
-	// check a given number from the user, tell if it is odd or even
-	cout << "Helloo to odd or even mini-app." << endl;
-	cout << "What number you'd like to check?" << endl;
+	// given the text, find the repeated word
+	string text = R"""(
+In the peaceful town of Willowbrook, there lived a curious girl named Lily.One day, she stumbled upon a dusty book near an old oak tree, revealing a map to the legendary Crystal Grove hidden in the forest.
 
-	int num;
-	cin >> num;
-	while (!cin.good())
-	{
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Please enter valid number!\n> ";
-		cin >> num;
-	}
-	if (num % 2 == 0) cout << "you entered " << num << " and it is EVEN" << endl;
-	else cout << "you entered " << num << " and it is ODD" << endl;
+Driven by excitement, Lily embarked on a magical journey through the enchanted woods.Along the way, she encountered talking animals and made new friends.The forest became a kaleidoscope of colors with butterflies dancing in the sunlight.
+
+After a day of exploration, Lily reached the Crystal Grove, a mesmerizing place adorned with crystals of every hue.She picked a small, shimmering crystal as a keepsake, and a warm glow surrounded her, granting her the ability to spread joy and wonder.
+
+Returning to Willowbrook, Lily shared her enchanting adventure, gifting crystals to friends and neighbors.The town transformed, infused with a magical energy.Lily's simple story became a legend, inspiring others to embrace the magic in everyday life, ensuring the enchantment of the Crystal Grove lived on in their hearts.)""";
+	
+	stringstream ss;
+	ss << text;
+
+	string nextStr = "";
+	ss >> nextStr;
+	cout << nextStr << endl;
+	// Output: In -> first word
+	ss >> nextStr;
+	cout << nextStr << endl;
+	// Output: the -> second word
 }
