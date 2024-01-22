@@ -9,30 +9,39 @@ using namespace std;
 
 int main()
 {
-	// find the smallest number
-	vector <int> randomNumbers;
-
+	// sorting numbers smallest to biggest challenge (called bubble sort algorithm)
+	vector<int> randomNums;
 	srand(time(nullptr));
-
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		int number = rand() % 100 - 50; // generate random number between -50 and 50
-		// rand() % 100 -> between 0 and 100
-		randomNumbers.push_back(number);
-		cout << number << " ";
+		int num = rand() % 100;
+		randomNums.push_back(num);
+		cout << num << " ";
 	}
-
-	if (!randomNumbers.empty())
+	
+	cout << "\n------------------" << endl;
+	//reorder the number from the smallest to the biggest. Sorting
+	// Bubble sort - SLOW
+	for (int i = 0; i < randomNums.size(); i++)
 	{
-		int smallest = randomNumbers[0];
-		for (int num : randomNumbers)
+		for (int j = i + 1; j < randomNums.size(); ++j)
 		{
-			if (num < smallest) smallest = num;
+			if (randomNums[i] > randomNums[j])
+			{
+				swap(randomNums[i], randomNums[j]);
+			}
 		}
-		cout << "\nsmallest number is: " << smallest << endl;
 	}
-	else
+	for (int n : randomNums)
 	{
-		cout << "the numbers is empty" << endl;
+		cout << n << " ";
 	}
+
+	// other algorithms
+	/*
+	quick sort -> super fast
+	binary heap sort
+	insertion sort
+	merge sort
+	*/
 }
