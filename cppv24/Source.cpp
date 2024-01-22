@@ -7,35 +7,62 @@
 #include <random>
 using namespace std;
 
-int main()
+void printMsg(string msg, bool newLine)
 {
-	// sorting numbers smallest to biggest challenge (called bubble sort algorithm)
+	cout << msg << endl;
+	if (newLine) cout << endl;
+}
+
+void helloMsg()
+{
+	printMsg("hello world!", true);
+}
+
+vector<int> generateRandomNum(int numberOfNumber)
+{
 	vector<int> randomNums;
 	srand(time(nullptr));
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < numberOfNumber; i++)
 	{
 		int num = rand() % 100;
 		randomNums.push_back(num);
 		cout << num << " ";
 	}
-	
-	cout << "\n------------------" << endl;
-	//reorder the number from the smallest to the biggest. Sorting
-	// Bubble sort - SLOW
-	for (int i = 0; i < randomNums.size(); i++)
+	return randomNums;
+}
+
+vector<int> sortNumsSmallerToBiggest(vector<int> nums)
+{
+	for (int i = 0; i < nums.size(); i++)
 	{
-		for (int j = i + 1; j < randomNums.size(); ++j)
+		for (int j = i + 1; j < nums.size(); ++j)
 		{
-			if (randomNums[i] > randomNums[j])
+			if (nums[i] > nums[j])
 			{
-				swap(randomNums[i], randomNums[j]);
+				swap(nums[i], nums[j]);
 			}
 		}
 	}
-	for (int n : randomNums)
+	vector<int> sortedVec;
+	for (int n : nums)
 	{
+		sortedVec.push_back(n);
 		cout << n << " ";
 	}
+	return sortedVec;
+}
+
+int main()
+{
+	helloMsg();
+	// sorting numbers smallest to biggest challenge (called bubble sort algorithm)
+
+
+	vector<int> randomNums = generateRandomNum(15);
+	cout << "\n------------------" << endl;
+	//reorder the number from the smallest to the biggest. Sorting
+	// Bubble sort - SLOW
+	sortNumsSmallerToBiggest(randomNums);
 
 	// other algorithms
 	/*
