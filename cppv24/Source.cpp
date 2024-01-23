@@ -31,7 +31,9 @@ vector<int> generateRandomNum(int numberOfNumber)
 	return randomNums;
 }
 
-vector<int> sortVector(vector<int> nums)
+// ampersand(&) means taking the argument as a referance. not as COPY. better for performance.
+// not having & means pass by value/copy, with & means pass by referance.
+void sortVector(vector<int>& nums)
 {
 	for (int i = 0; i < nums.size(); i++)
 	{
@@ -43,7 +45,6 @@ vector<int> sortVector(vector<int> nums)
 			}
 		}
 	}
-	return nums;
 }
 
 int main()
@@ -59,8 +60,8 @@ int main()
 	sortVector(randomNums);
 
 
-	vector<int> sortedVec = sortVector(randomNums);
-	for (int n : sortedVec)
+
+	for (int n : randomNums)
 	{
 		cout << n << " ";
 	}
