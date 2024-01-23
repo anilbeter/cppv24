@@ -33,7 +33,9 @@ vector<int> generateRandomNum(int numberOfNumber)
 
 // ampersand(&) means taking the argument as a referance. not as COPY. better for performance.
 // not having & means pass by value/copy, with & means pass by referance.
-void sortVector(vector<int>& nums)
+
+// does alter the argument. (modifier)
+void sortVector(const vector<int>& nums)
 {
 	for (int i = 0; i < nums.size(); i++)
 	{
@@ -44,6 +46,17 @@ void sortVector(vector<int>& nums)
 				swap(nums[i], nums[j]);
 			}
 		}
+	}
+}
+
+// only reads the argument. (accesser)
+void printVector(vector<int>& vector)
+{
+
+
+	for (int n : vector)
+	{
+		cout << n << " ";
 	}
 }
 
@@ -58,19 +71,5 @@ int main()
 	//reorder the number from the smallest to the biggest. Sorting
 	// Bubble sort - SLOW
 	sortVector(randomNums);
-
-
-
-	for (int n : randomNums)
-	{
-		cout << n << " ";
-	}
-
-	// other algorithms
-	/*
-	quick sort -> super fast
-	binary heap sort
-	insertion sort
-	merge sort
-	*/
+	printVector(randomNums);
 }
