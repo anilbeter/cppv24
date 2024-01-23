@@ -7,7 +7,8 @@
 #include <random>
 using namespace std;
 
-void printMsg(string msg, bool newLine)
+template<typename T>
+void printMsg(T msg, bool newLine)
 {
 	cout << msg << endl;
 	if (newLine) cout << endl;
@@ -35,7 +36,7 @@ vector<int> generateRandomNum(int numberOfNumber)
 // not having & means pass by value/copy, with & means pass by referance.
 
 // does alter the argument. (modifier)
-void sortVector(const vector<int>& nums)
+void sortVector(vector<int>& nums)
 {
 	for (int i = 0; i < nums.size(); i++)
 	{
@@ -50,11 +51,10 @@ void sortVector(const vector<int>& nums)
 }
 
 // only reads the argument. (accesser)
-void printVector(vector<int>& vector)
+template<typename T>
+void printVector(const vector<T>& vector)
 {
-
-
-	for (int n : vector)
+	for (T n : vector)
 	{
 		cout << n << " ";
 	}
@@ -72,4 +72,12 @@ int main()
 	// Bubble sort - SLOW
 	sortVector(randomNums);
 	printVector(randomNums);
+
+	// templates
+	printMsg("anil", true);
+	printMsg(23, true);
+	printMsg(1.5, true);
+	printMsg(false, true);
+
+	printVector(vector<string>{"anil", "dream", "on"});
 }
