@@ -31,7 +31,7 @@ vector<int> generateRandomNum(int numberOfNumber)
 	return randomNums;
 }
 
-vector<int> sortNumsSmallerToBiggest(vector<int> nums)
+vector<int> sortVector(vector<int> nums)
 {
 	for (int i = 0; i < nums.size(); i++)
 	{
@@ -43,13 +43,7 @@ vector<int> sortNumsSmallerToBiggest(vector<int> nums)
 			}
 		}
 	}
-	vector<int> sortedVec;
-	for (int n : nums)
-	{
-		sortedVec.push_back(n);
-		cout << n << " ";
-	}
-	return sortedVec;
+	return nums;
 }
 
 int main()
@@ -62,7 +56,14 @@ int main()
 	cout << "\n------------------" << endl;
 	//reorder the number from the smallest to the biggest. Sorting
 	// Bubble sort - SLOW
-	sortNumsSmallerToBiggest(randomNums);
+	sortVector(randomNums);
+
+
+	vector<int> sortedVec = sortVector(randomNums);
+	for (int n : sortedVec)
+	{
+		cout << n << " ";
+	}
 
 	// other algorithms
 	/*
