@@ -19,6 +19,7 @@ void helloMsg()
 	printMsg("hello world!", true);
 }
 
+// definition
 vector<int> generateRandomNum(int numberOfNumber)
 {
 	vector<int> randomNums;
