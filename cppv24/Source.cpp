@@ -60,14 +60,19 @@ void printVector(const vector<T>& vector)
 	}
 }
 
-// multiple templates
-template<typename X, typename Y>
-void sum(X num1, Y num2)
+template<typename T>
+T sum(T t)
 {
-	cout << num1 + num2 << endl;
+	return t;
+}
+
+template<typename ArgOne, typename ...Others>
+ArgOne sum(ArgOne argOne, Others ...others)
+{
+	return argOne + sum(others...);
 }
 
 int main()
 {
-	sum(1.5f, 3); // 4.5
+	cout << sum(1.5f, 3, 20, 35, 102) << endl; // 161.5
 }
