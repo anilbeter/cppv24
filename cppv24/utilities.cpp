@@ -5,6 +5,7 @@
 #include <string> 
 #include <sstream>
 #include <random>
+#include "utilities.h"
 using namespace std;
 
 template<typename T>
@@ -48,16 +49,6 @@ void sortVector(vector<int>& nums)
 				swap(nums[i], nums[j]);
 			}
 		}
-	}
-}
-
-// only reads the argument. (accesser)
-template<typename T>
-void printVector(const vector<T>& vector)
-{
-	for (T n : vector)
-	{
-		cout << n << " ";
 	}
 }
 
