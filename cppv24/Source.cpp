@@ -1,7 +1,4 @@
-#include <vector>
-
-// declaration, says this thing called generateRandomNum exists, and it takes int argument and returns a vector<int>
-std::vector<int> generateRandomNum(int randomNumbers);
+#include "utilities.h"
 
 int main()
 {
