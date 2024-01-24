@@ -60,24 +60,14 @@ void printVector(const vector<T>& vector)
 	}
 }
 
+// multiple templates
+template<typename X, typename Y>
+void sum(X num1, Y num2)
+{
+	cout << num1 + num2 << endl;
+}
+
 int main()
 {
-	helloMsg();
-	// sorting numbers smallest to biggest challenge (called bubble sort algorithm)
-
-
-	vector<int> randomNums = generateRandomNum(15);
-	cout << "\n------------------" << endl;
-	//reorder the number from the smallest to the biggest. Sorting
-	// Bubble sort - SLOW
-	sortVector(randomNums);
-	printVector(randomNums);
-
-	// templates
-	printMsg("anil", true);
-	printMsg(23, true);
-	printMsg(1.5, true);
-	printMsg(false, true);
-
-	printVector(vector<string>{"anil", "dream", "on"});
+	sum(1.5f, 3); // 4.5
 }
