@@ -23,4 +23,6 @@ int main()
 	cout << xPtr << endl; // 000000B089CFFC04
 	cout << x << endl; // 23
 	cout << *xPtr << endl; // 23
+
+	cout << *(int*)xPtr2 << endl;
 }
