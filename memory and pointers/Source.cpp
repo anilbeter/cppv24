@@ -24,5 +24,5 @@ int main()
 	cout << x << endl; // 23
 	cout << *xPtr << endl; // 23
 
-	cout << *(int*)xPtr2 << endl;
+	cout << *static_cast<int*>(xPtr2) << endl; // 23
 }
