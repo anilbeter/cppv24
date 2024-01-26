@@ -1,28 +1,23 @@
 #include <iostream>
+#include <memory>
 using namespace std;
 
 void printInt(int num)
 {
-	cout << num << endl;
-	{
-		int c = num;
-		cout << c << endl;
-	}
 
-	int d = 23;
 }
 
 int main()
 {
-	int x = 5; // x is created on stack memory
-	int* heapX = new int{ 5 }; // an int variable with value 5 created on the heap. it's addres is stored in the stack variable heapX(which is a pointer). 
-	delete heapX;
+	unique_ptr<int> uniquePtr = make_unique<int>(5);
+	cout << uniquePtr << endl; // 000001F9403F7540
+	cout << *uniquePtr << endl; // 5
+	// unique pointer very similar to raw pointer about usage
+	// its SMART pointer because it automatically delete or free the memory when it goes out of scope
 
-	printInt(x);
-
-	// heap can be used when need big storage.
-	// the memory allocated is not automatically removed unlike stack.
-	// to manually free the memory, you need to call delete on the pointer
+	unique_ptr<int> anotherUniquePtr = move(uniquePtr);
+	cout << *anotherUniquePtr << endl; // 5
+	// unique ptr doesn't allow copy, but allows move. the move() function method transfers the ownership of the raw pointer internally to the other one
 }
 
 
