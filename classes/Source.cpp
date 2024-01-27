@@ -4,7 +4,7 @@ using namespace std;
 
 class Student
 {
-public: 
+public:
 	//constructor has the same name as the class and no return value
 	Student(const string& studentName, int studentID, int studentYear)
 		// better performance than assignment the values in the function body
@@ -16,8 +16,8 @@ public:
 	}
 
 	// I can create different constructors, as long as  their signature are different.
-	Student(const char* rawStringName, int studentID, int studentYear) 
-		: Student(string{rawStringName}, studentID, studentYear)
+	Student(const char* rawStringName, int studentID, int studentYear)
+		: Student(string{ rawStringName }, studentID, studentYear)
 	{
 
 	}
@@ -29,7 +29,7 @@ public:
 	}
 
 	// member functions
-	void SayHello()
+	void SayHello() const
 	{
 		cout << name << " says hello" << endl;
 	}
@@ -57,7 +57,7 @@ public:
 		}
 	}
 
-	bool IsGratuated()
+	bool IsGratuated() const
 	{
 		return year > 4;
 	}
@@ -74,19 +74,19 @@ public:
 	}
 
 	// getters
-	int GetID()
+	int GetID() const
 	{
 		return ID;
 	}
 
 	// member variables
 	string name;
-	
+
 private:
 	// to adjust variables that is private, create setter&getter functions
 	int ID;
 	int year;
-
+	const bool isDreamComeTrue = true;
 
 };
 
