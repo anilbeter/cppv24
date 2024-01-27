@@ -8,7 +8,7 @@ public:
 	//constructor has the same name as the class and no return value
 	Student(const string& studentName, int studentID, int studentYear)
 		// better performance than assignment the values in the function body
-		: name{ new string{studentName} }, ID{ studentID }, year{ studentYear }
+		: name{ studentName }, ID{ studentID }, year{ studentYear }
 	{
 		//name = studentName;
 		//ID = studentID;
@@ -25,11 +25,45 @@ public:
 	// destructor, called when object is out of scope or deleted if allocated on the heap.
 	~Student()
 	{
-		cout << "student " << *name << " is destructured" << endl;
-		delete name;
+		cout << "student " << name << " is destructured" << endl;
 	}
 
-	string* name;
+	// member functions
+	void SayHello()
+	{
+		cout << name << " says hello" << endl;
+	}
+
+	void IncrementYear()
+	{
+		year++;
+		switch (year)
+		{
+		case 1:
+			cout << name << " is in freshman" << endl;
+			break;
+		case 2:
+			cout << name << " is in 2nd year" << endl;
+			break;
+		case 3:
+			cout << name << " is in junior year" << endl;
+			break;
+		case 4:
+			cout << name << " is in last year" << endl;
+			break;
+		default:
+			cout << name << " graduated" << endl;
+			break;
+		}
+	}
+
+	bool IsGratuated()
+	{
+		return year > 4;
+	}
+
+	// member variables
+	string name;
 	int ID;
 	int year;
 
@@ -38,4 +72,11 @@ public:
 int main()
 {
 	Student student{ "Anil", 234, 2 };
+	student.SayHello(); // Anil says hello
+	student.IncrementYear(); // Anil is in junior year
+	
+	while (!student.IsGratuated())
+	{
+		student.IncrementYear();
+	}
 }
