@@ -1,15 +1,35 @@
 #include <iostream>
+#include <vector>
 using namespace std;
+
+class Student
+{
+public: // accessible out of class
+	string name;
+	int ID;
+	int year;
+
+};
 
 int main()
 {
-	string studentOneName = "Anil";
-	int studentOneID = 23;
-	int studentOneYear = 2;
+	Student studentOne;
+	studentOne.name = "Anil";
+	studentOne.ID = 23;
+	studentOne.year = 2;
 
-	string studentTwoName = "Ocean";
-	int studentTwoID = 24;
-	int studentTwoYear = 2;
-	// Yukarida yazdigim kod tamamen amele isi
-	// Boyle yapmak yerine class tanimlayabilirim
+	Student studentTwo;
+	studentTwo.name = "Ocean";
+	studentTwo.ID = 24;
+	studentTwo.year = 2;
+
+	// I can store'em in a vector
+	vector<Student> students = { studentOne, studentTwo };
+	for (Student& s : students)
+	{
+		cout << s.name << endl;
+		// Anil
+		// Ocean
+	}
+
 }
