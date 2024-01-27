@@ -8,7 +8,7 @@ public:
 	//constructor has the same name as the class and no return value
 	Student(const string& studentName, int studentID, int studentYear)
 		// better performance than assignment the values in the function body
-		: name{ studentName }, ID{ studentID }, year{ studentYear }
+		: name{ new string{studentName} }, ID{ studentID }, year{ studentYear }
 	{
 		//name = studentName;
 		//ID = studentID;
@@ -22,7 +22,14 @@ public:
 
 	}
 
-	string name;
+	// destructor, called when object is out of scope or deleted if allocated on the heap.
+	~Student()
+	{
+		cout << "student " << *name << " is destructured" << endl;
+		delete name;
+	}
+
+	string* name;
 	int ID;
 	int year;
 
@@ -30,16 +37,5 @@ public:
 
 int main()
 {
-	Student studentOne{ "Anil", 23, 2 };
-	Student studentTwo{ "Ocean", 24, 2 };
-
-	// I can store'em in a vector
-	vector<Student> students = { studentOne, studentTwo };
-	for (Student& s : students)
-	{
-		cout << s.name << endl;
-		// Anil
-		// Ocean
-	}
-
+	Student student{ "Anil", 234, 2 };
 }
