@@ -17,7 +17,7 @@ public:
 
 	// I can create different constructors, as long as  their signature are different.
 	Student(const char* rawStringName, int studentID, int studentYear) 
-		: name{rawStringName}, ID{studentID}, year{studentYear}
+		: Student(string{rawStringName}, studentID, studentYear)
 	{
 
 	}
