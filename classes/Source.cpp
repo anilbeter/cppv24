@@ -62,21 +62,37 @@ public:
 		return year > 4;
 	}
 
+	// setters
+	void SetID(int newID)
+	{
+		if (newID < 0)
+		{
+			cout << "Wrong ID value, should be greater than zero!" << endl;
+			return;
+		}
+		ID = newID;
+	}
+
+	// getters
+	int GetID()
+	{
+		return ID;
+	}
+
 	// member variables
 	string name;
+	
+private:
+	// to adjust variables that is private, create setter&getter functions
 	int ID;
 	int year;
+
 
 };
 
 int main()
 {
 	Student student{ "Anil", 234, 2 };
-	student.SayHello(); // Anil says hello
-	student.IncrementYear(); // Anil is in junior year
-	
-	while (!student.IsGratuated())
-	{
-		student.IncrementYear();
-	}
+	student.SetID(-23); // Wrong ID value, should be greater than zero!
+	cout << student.GetID() << endl; // 234
 }
