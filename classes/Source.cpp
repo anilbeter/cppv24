@@ -4,7 +4,24 @@ using namespace std;
 
 class Student
 {
-public: // accessible out of class
+public: 
+	//constructor has the same name as the class and no return value
+	Student(const string& studentName, int studentID, int studentYear)
+		// better performance than assignment the values in the function body
+		: name{ studentName }, ID{ studentID }, year{ studentYear }
+	{
+		//name = studentName;
+		//ID = studentID;
+		//year = studentYear;
+	}
+
+	// I can create different constructors, as long as  their signature are different.
+	Student(const char* rawStringName, int studentID, int studentYear) 
+		: name{rawStringName}, ID{studentID}, year{studentYear}
+	{
+
+	}
+
 	string name;
 	int ID;
 	int year;
@@ -13,15 +30,8 @@ public: // accessible out of class
 
 int main()
 {
-	Student studentOne;
-	studentOne.name = "Anil";
-	studentOne.ID = 23;
-	studentOne.year = 2;
-
-	Student studentTwo;
-	studentTwo.name = "Ocean";
-	studentTwo.ID = 24;
-	studentTwo.year = 2;
+	Student studentOne{ "Anil", 23, 2 };
+	Student studentTwo{ "Ocean", 24, 2 };
 
 	// I can store'em in a vector
 	vector<Student> students = { studentOne, studentTwo };
