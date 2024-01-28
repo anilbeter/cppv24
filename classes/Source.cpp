@@ -12,7 +12,8 @@ public:
 
 	}
 
-	void Run()
+	// virtual means the child class can override.
+	virtual void Run()
 	{
 		cout << name << " running with " << capacity << " people" << endl;
 	}
@@ -48,7 +49,8 @@ public:
 
 	}
 
-	void Run()
+	// override means we are not creating a new function, we are redefining the vehicle part of the Run() for the car
+	virtual void Run() override
 	{
 		cout << name << " with " << totalMil << " mil " << GetCapacity() << " people running!" << endl;
 	}
@@ -67,8 +69,13 @@ int main()
 	Vehicle newVehicle{ "Ocean2023", 1500 };
 
 	Car anilCar{ "Benz23v", 5, 55523 };
-	Vehicle& carAsVehicle = anilCar;
+	//Vehicle& carAsVehicle = anilCar;
 
 	anilCar.Run(); // Benz23v with 55523 mil 5 people running!
-	carAsVehicle.Run(); // Benz23v running with 5 people
+	// carAsVehicle.Run(); // Benz23v with 55523 mil 5 people running!
+
+	// Another way to show it with pointer&reference
+	Vehicle* carAsVehicle = &anilCar;
+	carAsVehicle->Run();
+	// Benz23v with 55523 mil 5 people running!
 }
