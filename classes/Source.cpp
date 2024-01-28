@@ -48,6 +48,11 @@ public:
 
 	}
 
+	void Run()
+	{
+		cout << name << " with " << totalMil << " mil " << GetCapacity() << " people running!" << endl;
+	}
+
 	float GetTotalMil() const
 	{
 		return totalMil;
@@ -60,9 +65,10 @@ private:
 int main()
 {
 	Vehicle newVehicle{ "Ocean2023", 1500 };
-	newVehicle.Run(); // Ocean2023 running with 1500 people
 
 	Car anilCar{ "Benz23v", 5, 55523 };
-	anilCar.Run(); // Benz23v running with 5 people
-	cout << anilCar.GetTotalMil() << endl; // 55523
+	Vehicle& carAsVehicle = anilCar;
+
+	anilCar.Run(); // Benz23v with 55523 mil 5 people running!
+	carAsVehicle.Run(); // Benz23v running with 5 people
 }
