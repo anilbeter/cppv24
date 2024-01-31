@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// Parent class
+// Parent class - it is an abstract concept. if there is atleast one pure virtual function, the class automatically becomes abstract.
 class Vehicle
 {
 public:
@@ -13,10 +13,7 @@ public:
 	}
 
 	// virtual means the child class can override.
-	virtual void Run()
-	{
-		cout << name << " running with " << capacity << " people" << endl;
-	}
+	virtual void Run() = 0; // pure virtual function. meaning the class is abstract.
 
 	int GetCapacity() const 
 	{
@@ -66,7 +63,7 @@ private:
 
 int main()
 {
-	Vehicle newVehicle{ "Ocean2023", 1500 };
+	// Vehicle newVehicle{ "Ocean2023", 1500 };
 
 	Car anilCar{ "Benz23v", 5, 55523 };
 	//Vehicle& carAsVehicle = anilCar;
@@ -76,6 +73,5 @@ int main()
 
 	// Another way to show it with pointer&reference
 	Vehicle* carAsVehicle = &anilCar;
-	carAsVehicle->Run();
-	// Benz23v with 55523 mil 5 people running!
+	carAsVehicle->Run(); // Polymorphism - many forms. uses a v table to find the correct function to call.
 }
